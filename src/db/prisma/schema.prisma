@@ -1,0 +1,29 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model Article {
+    id        Int       @id @default(autoincrement())
+    nickname  String
+    title     String
+    content   String
+    createdAt DateTime  @default(now())
+    comments  Comment[] @relation("ArticleComments")
+}
+
+model Comment {
+    id            Int       @id @default(autoincrement())
+    nickname      String
+    content       String
+    createdAt     DateTime  @default(now())
+    articleId     Int? // Nullable, if it's a reply to another comment
+    parentId      Int? // Nullable, if it's a top-level comment
+    article       Article?  @relation("ArticleComments", fields: [articleId], references: [id])
+    parentComment Comment?  @relation("CommentReplies", fields: [parentId], references: [id])
+    replies       Comment[] @relation("CommentReplies")
+}
