@@ -15,7 +15,7 @@ export const errorHandler = (
       success: false,
       status: err.status,
       message: err.message || "Something went wrong!",
-      isOperration: err.isOperational,
+      isOperation: err.isOperational,
     });
   } else if (
     err instanceof PrismaClientKnownRequestError &&
