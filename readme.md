@@ -1,5 +1,25 @@
 # Follow these steps to run the project:
 
+1. cd to the project directory
+
+2. Setup the Docker Services:
+    ```bash
+    docker-compose up -d
+    ```
+
+3. Access the project at http://localhost:3001
+
+4. Open Postman and test the API endpoints.
+
+5. Open Prisma Studio to manage the database.
+    ```bash
+    docker exec -it nodejs-app npx prisma studio --port 5555
+    ```
+
+6. Access the BullMQ Dashboard at http://localhost:3001/bullboard
+
+### Running Tests
+
 1. Navigate to the project directory:
     ```bash
     cd test-task
@@ -10,21 +30,18 @@
     npm install
     ```
 
-3. Run the Prisma Setup:
+3. Setup the Docker Services:
+    ```bash
+    docker-compose up -d redis mysql
+    ```
+
+4. Run the Prisma Setup:
     ```bash
     # Generate Prisma Client based on the schema
     npm run prisma:generate
 
-    # Apply migrations to set up the database
+    # Apply migrations
     npm run prisma:migrate
-
-    # Optional: Open Prisma Studio for managing the database
-    npm run prisma:studio
-    ```
-
-4. Setup the Docker Services:
-    ```bash
-    docker-compose up -d
     ```
 
 5. Copy Env File (Create .env file):
@@ -32,27 +49,10 @@
     cp .env.sample .env
     ```
 
-6. Start the project:
-    ```bash
-    npm start
-    ```
-
-7. Access the project at http://localhost:3001
-
-8. Open Postman and test the API endpoints.
-
-9. Open Prisma Studio to manage the database.
-    ```bash
-    npm run prisma:studio
-    ```
-
-10. Run the tests:
+6. Run the Tests:
     ```bash
     npm run test
     ```
-
-11. Access the BullMQ Dashboard at http://localhost:3001/bullboard
-
 
 ### Common Issues
 

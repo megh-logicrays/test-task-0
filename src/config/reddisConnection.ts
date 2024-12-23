@@ -2,8 +2,8 @@ import Redis from "ioredis";
 import { logger } from "./logger";
 
 export const reddisConnection = new Redis({
-  host: "localhost",
-  port: 6379,
+  host: process.env.REDIS_HOST || "localhost",
+  port: process.env.REDIS_PORT ? Number(process.env.REDIS_PORT) : 6379,
   maxRetriesPerRequest: null,
 });
 

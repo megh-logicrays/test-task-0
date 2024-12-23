@@ -2,6 +2,7 @@ import request from "supertest";
 import appInstance from "../src/lib/ExpressAppProvider";
 import { prisma } from "../src/db/prisma.client";
 import { AppError } from "../src/common/errors/AppError";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 const app = appInstance.getServer();
 const baseUrl = "/api/v1/comments";
@@ -117,7 +118,10 @@ describe("Tests for Comments: /api/v1/comments", () => {
 
       jest
         .spyOn(prisma.article, "findUnique")
-        .mockRejectedValue(new AppError("Article not found", 404));
+        .mockRejectedValue(new PrismaClientKnownRequestError("Article not found", {
+          code: "P2025",
+          clientVersion: "4.9.0",
+        }));
 
       const response = await request(app)
         .post(`${baseUrl}/article`)
