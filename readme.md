@@ -35,18 +35,18 @@
     docker-compose up -d redis mysql
     ```
 
-4. Run the Prisma Setup:
+4. Copy Env File (Create .env file):
+    ```bash
+    cp .env.sample .env
+    ```
+
+5. Run the Prisma Setup:
     ```bash
     # Generate Prisma Client based on the schema
     npm run prisma:generate
 
     # Apply migrations
     npm run prisma:migrate
-    ```
-
-5. Copy Env File (Create .env file):
-    ```bash
-    cp .env.sample .env
     ```
 
 6. Run the Tests:
