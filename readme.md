@@ -37,7 +37,7 @@
     npm start
     ```
 
-7. Access the project at http://localhost:3000
+7. Access the project at http://localhost:3001
 
 8. Open Postman and test the API endpoints.
 
