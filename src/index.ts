@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Initializing Server
-import app from "./lib/ExpressAppProvider";
-app.startServer();
+import appInstance from "./lib/ExpressAppProvider";
+appInstance.startServer();
 
 // Registering Signal Kill Events
 process.on("SIGINT", () => {

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["./src/common/types/custom.d.ts"],
+    "types": ["./src/common/types/custom.d.ts", "jest"],
     "target": "es2020",
     "module": "commonjs",
     "strict": true,
@@ -9,6 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "tests/**/*"],
   "exclude": ["node_modules"]
 }

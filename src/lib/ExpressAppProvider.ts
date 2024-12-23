@@ -15,7 +15,7 @@ import { registerCreateArticleWorkerEvents } from "../common/queue/articles.work
 import { logger } from "../config/logger";
 import golbalRouter from "../routes";
 
-class App {
+class ExpressAppProvider {
   public app: Express;
   private port: number | string;
 
@@ -70,8 +70,12 @@ class App {
       logger.error("Failed to start the server:", error);
     }
   }
+
+  public getServer(): Express {
+    return this.app;
+  }
 }
 
-const app = new App();
+const appInstance = new ExpressAppProvider();
 
-export default app;
+export default appInstance;
