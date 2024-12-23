@@ -1,21 +1,16 @@
 # Follow these steps to run the project:
 
-1. Clone the repository:
+1. Navigate to the project directory:
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    cd test-task
     ```
 
-2. Navigate to the project directory:
-    ```bash
-    cd your-repo-name
-    ```
-
-3. Install dependencies:
+2. Install dependencies:
     ```bash
     npm install
     ```
 
-4. Run the Prisma Setup:
+3. Run the Prisma Setup:
     ```bash
     # Generate Prisma Client based on the schema
     npm run prisma:generate
@@ -27,36 +22,36 @@
     npm run prisma:studio
     ```
 
-5. Setup the Docker Services:
+4. Setup the Docker Services:
     ```bash
     docker-compose up -d
     ```
 
-6. Copy Env File (Create .env file):
+5. Copy Env File (Create .env file):
     ```bash
     cp .env.sample .env
     ```
 
-7. Start the project:
+6. Start the project:
     ```bash
     npm start
     ```
 
-8. Access the project at http://localhost:3000
+7. Access the project at http://localhost:3000
 
-9. Open Postman and test the API endpoints.
+8. Open Postman and test the API endpoints.
 
-10. Open Prisma Studio to manage the database.
+9. Open Prisma Studio to manage the database.
     ```bash
     npm run prisma:studio
     ```
 
-11. Run the tests:
+10. Run the tests:
     ```bash
     npm run test
     ```
 
-12. Access the BullMQ Dashboard at http://localhost:3001/bullboard
+11. Access the BullMQ Dashboard at http://localhost:3001/bullboard
 
 
 ### Common Issues
