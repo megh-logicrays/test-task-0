@@ -22,8 +22,17 @@ export class CommentService {
   async createCommentForArticle(
     data: Omit<Comment, "id" | "createdAt" | "parentId">,
   ): Promise<Comment> {
+    const { articleId, ...restData } = data;
+    if (!articleId) {
+      throw new Error("articleId is required to create a comment.");
+    }
     return await prisma.comment.create({
-      data,
+      data: {
+        ...restData,
+        article: {
+          connect: { id: articleId },
+        },
+      },
     });
   }
 
@@ -31,8 +40,17 @@ export class CommentService {
   async createReplyToComment(
     data: Omit<Comment, "id" | "createdAt" | "articleId">,
   ): Promise<Comment> {
+    const { parentId, ...restData } = data;
+    if (!parentId) {
+      throw new Error("parentId is required to create a comment.");
+    }
     return await prisma.comment.create({
-      data,
+      data: {
+        ...restData,
+        parentComment: {
+          connect: { id: parentId },
+        },
+      },
     });
   }
 

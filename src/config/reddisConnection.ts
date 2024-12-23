@@ -9,9 +9,9 @@ export const reddisConnection = new Redis({
 
 // Test the Redis connection
 reddisConnection.on("connect", () => {
-  logger.info("Redis connection successful");
+  logger.info("Redis connected successfully!");
 });
 
 reddisConnection.on("error", (err) => {
-  logger.error("Redis connection error:", err);
+  logger.error("An error occurred with the Redis connection:", err.message);
 });

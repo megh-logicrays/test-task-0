@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import { CommentService } from "../services/comments.services";
 import { generateResponse } from "../utils/generateResponse";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { AppError } from "../common/errors/AppError";
 
 const commentService = new CommentService();
 
